@@ -9,7 +9,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["https://stunnerluxury.netlify.app", "http://localhost:5000"],
+    origin: "*", // Temporarily allow all for testing - change to your Netlify URL later
     credentials: true,
   }),
 );
