@@ -7,8 +7,21 @@ const orderRoutes = require("./routes/order");
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: ["https://stunnerluxury.netlify.app", "http://localhost:5000"],
+    credentials: true,
+  }),
+);
+
 app.use(express.json());
+
+app.get("/", (req, res) => res.send("Backend is live!"));
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
 
 app.use("/api/auth", authRoutes);
 app.use("/api/order", orderRoutes);

@@ -67,4 +67,17 @@ router.post("/login", async (req, res) => {
   }
 });
 
+// VERIFY TOKEN
+router.get("/verify", async (req, res) => {
+  const token = req.headers.authorization?.split(" ")[1];
+  if (!token) return res.status(401).json({ valid: false });
+
+  try {
+    jwt.verify(token, process.env.JWT_SECRET);
+    res.json({ valid: true });
+  } catch (err) {
+    res.status(401).json({ valid: false });
+  }
+});
+
 module.exports = router;
