@@ -28,6 +28,7 @@ router.post("/signup", async (req, res) => {
 
     res.json({ msg: "Account created successfully" });
   } catch (err) {
+    console.error(err);
     res.status(500).json({ msg: "Server error" });
   }
 });
@@ -63,6 +64,7 @@ router.post("/login", async (req, res) => {
       user: { name: user.name, email: user.email },
     });
   } catch (err) {
+    console.error(err);
     res.status(500).json({ msg: "Server error" });
   }
 });
@@ -76,6 +78,7 @@ router.get("/verify", async (req, res) => {
     jwt.verify(token, process.env.JWT_SECRET);
     res.json({ valid: true });
   } catch (err) {
+    console.error(err);
     res.status(401).json({ valid: false });
   }
 });
