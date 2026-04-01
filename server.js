@@ -9,7 +9,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "*", // Temporarily allow all for testing - change to your Netlify URL later
+    origin: "https://stunna-lux-fe.onrender.com", // Temporarily allow all for testing - change to your Netlify URL later
     credentials: true,
   }),
 );
