@@ -18,7 +18,7 @@ app.use(express.json());
 
 app.get("/", (req, res) => res.send("Backend is live!"));
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 10000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
@@ -29,5 +29,5 @@ app.use("/api/order", orderRoutes);
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
-  res.status(500).json({ message: 'Something went wrong!' });
+  res.status(500).json({ message: "Something went wrong!" });
 });
